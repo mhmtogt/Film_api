@@ -1,23 +1,30 @@
-import 'dart:convert';
-
 import 'package:api_1/constants.dart';
 import 'package:api_1/models/film.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class Api {
+  static const _baseUrl = 'https://api.collectapi.com/';
+
   static const _favoriteUrl =
-      'https://api.collectapi.com/imdb/imdbSearchByName?query=inception?api_key=${Constants.apiKey}';
+      '${_baseUrl}imdb/imdbSearchByName?query=inception';
 
   Future<List<FilmModel>> getFavoriFilm() async {
-    final response = await http.get(Uri.parse(_favoriteUrl));
-    if (response.statusCode == 200) {
-      final decodedData =
-          jsonDecode(response.body)['results'] as List; //verilen mapi listeler
-      return decodedData
-          .map((filmodel) => FilmModel.EromJson(filmodel))
-          .toList();
-    } else {
-      throw Exception('bir hata oluştu');
+    try {
+      final dio = Dio();
+      dio.options.headers = {'Authorization': Constants.apiKey};
+      final response = await dio.get(_favoriteUrl);
+      final List<dynamic> data = response.data['result'];
+        final List<FilmModel> films =
+            data.map((item) => FilmModel.fromJson(item)).toList();
+        return films;
+    }on DioException catch (error) {
+      throw Exception('Bir hata oluştu: $error');
     } // internetten gelen veriye göre ok yada değil
   }
 }
+
+
+// GET methodu size bir istek karşılığında geriye veri dönderiyor
+//POST  methodu siz karşıya veri gönderiyorsunuz 
+// PUT methodu güncelleme işlemleri 
+// DELETE methodu ise silme işlemleri için kullanılır

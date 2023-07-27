@@ -13,7 +13,7 @@ class FilmModel {
     required this.Poster,
   });
 
-  factory FilmModel.EromJson(Map<String, dynamic> json) {
+  factory FilmModel.fromJson(Map<String, dynamic> json) {
     return FilmModel(
       Title: json["Title"],
       Year: json["Year"],
@@ -22,6 +22,8 @@ class FilmModel {
       Poster: json["Poster"],
     );
   }
+
+  get result => null;
 
  
 }
