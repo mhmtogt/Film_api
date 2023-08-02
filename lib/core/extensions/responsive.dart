@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 
 class ScreenSize {
   static final ScreenSize _instance = ScreenSize._init();
+ Size screenSize;
 
-  ScreenSize._init();
+  ScreenSize._init() : screenSize = Size(0, 0);
 
   factory ScreenSize() {
     return _instance;
   }
 
-  late Size screenSize; // bunun çalışabilmesi icin constructor kullanmalıyım
-
-   void init(BuildContext context) {
+  void init(BuildContext context) {
     screenSize = MediaQuery.of(context).size;
   }
  
