@@ -5,11 +5,16 @@ class ScreenSize {
 
   ScreenSize._init();
 
-  factory ScreenSize.getInstance() {
+  factory ScreenSize() {
     return _instance;
   }
 
-  late Size screenSize;
+  late Size screenSize; // bunun çalışabilmesi icin constructor kullanmalıyım
+
+   void init(BuildContext context) {
+    screenSize = MediaQuery.of(context).size;
+  }
+ 
 
   double get deviceWidth => screenSize.width;
   double get deviceHeight => screenSize.height;

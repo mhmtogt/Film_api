@@ -1,6 +1,5 @@
 import 'package:api_1/api/api.dart';
 import 'package:api_1/core/extensions/num_extension.dart';
-import 'package:api_1/core/extensions/responsive.dart';
 import 'package:api_1/features/widgets/favorite_film.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,6 +8,7 @@ import 'widgets/top_radet_film.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+  
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasData) {
           return SingleChildScrollView(
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         }
-        return SizedBox.shrink(); //data da yoksa bir şey olmadığı için boş dönecek 
+        return const SizedBox.shrink(); //data da yoksa bir şey olmadığı için boş dönecek 
       }),
     );
   }
