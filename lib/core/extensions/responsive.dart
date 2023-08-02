@@ -18,14 +18,14 @@ class ScreenSize {
   double get deviceWidth => screenSize.width;
   double get deviceHeight => screenSize.height;
 
-  // burada responsive genişligi hesapladım
+  
   double setWidth({required double width}) {
     if (deviceWidth == 0 || deviceHeight == 0) return 0.0;
 
     return screenSize.width / (deviceWidth / width);
   }
 
-  // burada responcive uzunluğunu hesapladım
+  
 
   double setHeight({required double height}) {
     if (deviceHeight == 0 || deviceWidth == 0) return 0.0;
