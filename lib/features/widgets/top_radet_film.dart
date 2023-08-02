@@ -1,3 +1,4 @@
+import 'package:api_1/core/extensions/num_extension.dart';
 import 'package:flutter/material.dart';
 
 class topRadet extends StatelessWidget {
@@ -8,7 +9,7 @@ class topRadet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 200.h,
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -21,8 +22,8 @@ class topRadet extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               child: Container(
                 color: Colors.white,
-                height: 200,
-                width: 150,
+                height: 200.h,
+                width: 150.w,
               ),
             ),
           );

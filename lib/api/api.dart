@@ -12,7 +12,7 @@ class Api {
     try {
       final dio = Dio();
       dio.options.headers = {'Authorization': Constants.apiKey};
-      final response = await dio.get(_favoriteUrl);
+      final response = await dio.get(_favoriteUrl);      
       final List<dynamic> data = response.data['result'];
         final List<FilmModel> films =
             data.map((item) => FilmModel.fromJson(item)).toList();

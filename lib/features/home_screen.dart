@@ -1,5 +1,6 @@
 import 'package:api_1/api/api.dart';
-import 'package:api_1/models/film.dart';
+import 'package:api_1/core/extensions/num_extension.dart';
+import 'package:api_1/core/extensions/responsive.dart';
 import 'package:api_1/features/widgets/favorite_film.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,8 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 32,
                   ),
                    favoriteFilm(films: snapshot.data??[]),// data gelmiş null ise boş liste geç
-                  const SizedBox(
-                    height: 32,
+                   SizedBox(
+                    height: 32.h,
                   ),
                   Text(
                     'Top radet Films',
@@ -64,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 32,
                   ),
                   Text(
-                    'Upcoming Films', // yaklaşan filmler
+                    'Upcoming Films', 
                     style: GoogleFonts.aBeeZee(
                       fontSize: 25,
                     ),
@@ -78,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         }
-        return SizedBox.shrink(); //data da yok bir olmadığı için boş dönecek 
+        return SizedBox.shrink(); //data da yoksa bir şey olmadığı için boş dönecek 
       }),
     );
   }
