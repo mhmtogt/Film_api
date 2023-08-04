@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScreenSize {
-  static final ScreenSize _instance = ScreenSize._init();
+  static final ScreenSize _instance = ScreenSize._init(); // singleton 
 
   ScreenSize._init();
 
