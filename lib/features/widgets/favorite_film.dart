@@ -43,12 +43,16 @@ class favoriteFilm extends StatelessWidget {
               child: Container(
                 height: 300.h,
                 width: 200.w,
-                child: film.Poster != null && film.Poster.isNotEmpty
-                    ? Image.network(film.Poster)
-                    : CachedNetworkImage(
-                        imageUrl: _randomUrl[random.nextInt(_randomUrl.length)],
-                        fit: BoxFit.cover,
-                      ),
+                child: CachedNetworkImage(
+                  imageUrl: film.Poster,
+                  errorWidget: (context, url, error) {
+                    return CachedNetworkImage(
+                      imageUrl: _randomUrl[random.nextInt(_randomUrl.length)],
+                      fit: BoxFit.cover,
+                    );
+                  },
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Text(film.Title),
