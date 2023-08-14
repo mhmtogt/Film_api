@@ -1,8 +1,8 @@
 import 'package:api_1/api/api.dart';
 import 'package:api_1/core/extensions/num_extension.dart';
+import 'package:api_1/core/theme/text_styles.dart';
 import 'package:api_1/features/widgets/favorite_film.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'widgets/top_radet_film.dart';
 
@@ -40,12 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     'Favorite Films',
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: 25,
-                    ),
+                    style: context.aBeeZee,
                   ),
-                  const SizedBox(
-                    height: 32,
+                   SizedBox(
+                    height: 32.h,
                   ),
                    favoriteFilm(films: snapshot.data??[]),// data gelmiş null ise boş liste geç
                    SizedBox(
@@ -53,25 +51,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Text(
                     'Top radet Films',
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: 25,
-                    ),
+                    style: context.aBeeZee,
                   ),
-                  const SizedBox(
-                    height: 32,
+                   SizedBox(
+                    height: 32.h,
                   ),
                   const topRadet(),
-                  const SizedBox(
-                    height: 32,
+                   SizedBox(
+                    height: 32.h,
                   ),
                   Text(
                     'Upcoming Films', 
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: 25,
-                    ),
+                    style: context.aBeeZee,
                   ),
-                  const SizedBox(
-                    height: 32,
+                   SizedBox(
+                    height: 32.h,
                   ),
                   const topRadet(),
                 ],
