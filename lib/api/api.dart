@@ -28,7 +28,7 @@ class Api {
       dio.options.headers = {'Authorization': Constants.apiKey};
 
       // Örnek JSON veri
-      final filmData = film.toJson();
+      final filmData = film.ImdbId;
 
       final response = await dio.post(_baseUrl + 'post', data: filmData);
 
@@ -48,7 +48,7 @@ class Api {
       dio.options.headers = {'Authorization': Constants.apiKey};
 
       // Örnek JSON veri
-      final filmData = film.toJson();
+      final filmData = film.ImdbId;
 
       final response = await dio.put(_baseUrl + 'put', data: filmData);
 
