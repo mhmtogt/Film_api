@@ -3,15 +3,13 @@ import 'package:api_1/models/film.dart';
 import 'package:dio/dio.dart';
 
 class Api {
-  static const _baseUrl = 'https://api.collectapi.com/';
-
-  static const _favoriteUrl =
-      '${_baseUrl}imdb/imdbSearchByName?query=inception';
+  static final Dio dio = Dio(BaseOptions(headers: {'Authorization': Constants.apiKey}));
+  static const String _baseUrl = 'https://api.collectapi.com/';
+  static const String _favoriteUrl = '${_baseUrl}imdb/imdbSearchByName?query=inception';
 
   Future<List<FilmModel>> getFavoriFilm() async {
     try {
-      final dio = Dio();
-      dio.options.headers = {'Authorization': Constants.apiKey};
+     
       final response = await dio.get(_favoriteUrl);
       final List<dynamic> data = response.data['result'];
       final List<FilmModel> films =
@@ -24,11 +22,10 @@ class Api {
 
   Future<void> postFilm(FilmModel film) async {
     try {
-      final dio = Dio();
-      dio.options.headers = {'Authorization': Constants.apiKey};
+     
 
-      // Örnek JSON veri
-      final filmData = film.ImdbId;
+      
+      final filmData = film.imdbId;
 
       final response = await dio.post(_baseUrl + 'post', data: filmData);
 
@@ -44,11 +41,9 @@ class Api {
 
   Future<void> putFilm(FilmModel film) async {
     try {
-      final dio = Dio();
-      dio.options.headers = {'Authorization': Constants.apiKey};
-
-      // Örnek JSON veri
-      final filmData = film.ImdbId;
+ 
+   
+      final filmData = film.imdbId;
 
       final response = await dio.put(_baseUrl + 'put', data: filmData);
 
@@ -64,10 +59,9 @@ class Api {
 
   Future<void> deleteFilm(int filmId) async {
     try {
-      final dio = Dio();
-      dio.options.headers = {'Authorization': Constants.apiKey};
+    
 
-      final response = await dio.delete(_baseUrl + 'your_delete/$filmId');
+      final response = await dio.delete(_baseUrl + 'delete/$filmId');
 
       if (response.statusCode == 200) {
         print('Film  silindi.');

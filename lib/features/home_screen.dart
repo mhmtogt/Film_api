@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       body: FutureBuilder(future: Api().getFavoriFilm(),
+      
 
         builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {

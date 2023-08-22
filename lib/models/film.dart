@@ -1,25 +1,25 @@
 class FilmModel {
-  final String Title;
-  final String Year;
-  final String ImdbId;
-  final String Type;
-  final String Poster;
+  final String title;
+  final String year;
+  final String imdbId;
+  final String type;
+  final String poster;
 
   FilmModel({
-    required this.Title,
-    required this.Year,
-    required this.ImdbId,
-    required this.Type,
-    required this.Poster,
+    required this.title,
+    required this.year,
+    required this.imdbId,
+    required this.type,
+    required this.poster,
   });
 
   factory FilmModel.fromJson(Map<String, dynamic> json) {
     return FilmModel(
-      Title: json["Title"],
-      Year: json["Year"],
-      ImdbId: json["imdbID"],
-      Type: json["Type"],
-      Poster: json["Poster"],
+      title: json["Title"],
+      year: json["Year"],
+      imdbId: json["imdbID"],
+      type: json["Type"],
+      poster: json["Poster"],
     );
   }
 

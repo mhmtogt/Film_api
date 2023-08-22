@@ -44,7 +44,7 @@ class favoriteFilm extends StatelessWidget {
                 height: 300.h,
                 width: 200.w,
                 child: CachedNetworkImage(
-                  imageUrl: film.Poster,
+                  imageUrl: film.poster,
                   errorWidget: (context, url, error) {
                     return CachedNetworkImage(
                       imageUrl: _randomUrl[random.nextInt(_randomUrl.length)],
@@ -56,7 +56,7 @@ class favoriteFilm extends StatelessWidget {
                
               ),
             ),
-            Text(film.Title),
+            Text(film.title),
           ],
         );
       },
