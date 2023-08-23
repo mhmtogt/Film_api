@@ -57,6 +57,7 @@ class favoriteFilm extends StatelessWidget {
               ),
             ),
             Text(film.title),
+            Text(film.imdbId),
           ],
         );
       },
