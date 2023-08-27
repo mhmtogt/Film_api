@@ -7,6 +7,14 @@ class Api {
   static const String _baseUrl = 'https://api.collectapi.com/';
   static const String _favoriteUrl = '${_baseUrl}imdb/imdbSearchByName?query=inception';
 
+  // ignore: slash_for_doc_comments
+  /**
+   * static const String _baseUrl = 'https://api.collectapi.com/';
+     static const String _imdbService = 'imdb/';
+     static const String _imdbSearchByName = 'imdbSearchByName';
+     static const String _queryParameter = '?query=inception';
+   */
+
   Future<List<FilmModel>> getFavoriFilm() async {
     try {
      

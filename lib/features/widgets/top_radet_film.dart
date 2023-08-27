@@ -1,36 +1,58 @@
+import 'dart:math';
+
 import 'package:api_1/core/extensions/num_extension.dart';
+import 'package:api_1/models/film.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class topRadet extends StatelessWidget {
   const topRadet({
     super.key,
+    required this.radets,
   });
+
+  final List<FilmModel> radets;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200.h,
-      width: double.infinity,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        itemCount: 10, // listeye kaç tane film ayacağını gösterir
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Container(
-                color: Colors.white,
-                height: 200.h,
-                width: 150.w,
+    return CarouselSlider.builder(
+        itemCount: radets.length,
+        options: CarouselOptions(
+          height: 500.h,
+          autoPlay: true,
+          viewportFraction: 0.55,
+          enlargeCenterPage: true, // kartın öne çıkmasını sağlar
+          autoPlayCurve: Curves.fastOutSlowIn,
+          autoPlayAnimationDuration:
+              const Duration(seconds: 2), // kartların geçiş zamanlaması
+          pageSnapping: true,
+        ),
+        itemBuilder: (context, itemIndex, pageViewIndex) {
+          final film = radets[itemIndex];
+          final random = Random();
+          return Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Container(
+                  height: 300.h,
+                  width: 200.w,
+                  child: CachedNetworkImage(
+                    imageUrl: film.poster,
+                    errorWidget: (context, url, error) {
+                      return SizedBox(
+                      );
+                    },
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
+              Text(film.title),
+              Text(film.imdbId),
+            ],
           );
-        },
-      ),
-    );
+        }
+        );
   }
 }
-
-

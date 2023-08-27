@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                    SizedBox(
                     height: 32.h,
                   ),
-                  const topRadet(),
+                   topRadet(radets: snapshot.data??[]),
                    SizedBox(
                     height: 32.h,
                   ),
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                    SizedBox(
                     height: 32.h,
                   ),
-                  const topRadet(),
+              //    const topRadet(),
                 ],
               ),
             ),
