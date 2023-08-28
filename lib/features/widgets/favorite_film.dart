@@ -1,7 +1,7 @@
-
 import 'dart:math';
 
 import 'package:api_1/core/extensions/num_extension.dart';
+import 'package:api_1/features/widgets/detail_screen.dart';
 import 'package:api_1/models/film.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -39,22 +39,31 @@ class favoriteFilm extends StatelessWidget {
         final random = Random();
         return Column(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Container(
-                height: 300.h,
-                width: 200.w,
-                child: CachedNetworkImage(
-                  imageUrl: film.poster,
-                  errorWidget: (context, url, error) {
-                    return CachedNetworkImage(
-                      imageUrl: _randomUrl[random.nextInt(_randomUrl.length)],
-                      fit: BoxFit.cover,
-                    );
-                  },
-                  fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DetailScreen(movie: favoriteFilm(films: films)),
+                        )
+                        );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Container(
+                  height: 300.h,
+                  width: 200.w,
+                  child: CachedNetworkImage(
+                    imageUrl: film.poster,
+                    errorWidget: (context, url, error) {
+                      return CachedNetworkImage(
+                        imageUrl: _randomUrl[random.nextInt(_randomUrl.length)],
+                        fit: BoxFit.cover,
+                      );
+                    },
+                    fit: BoxFit.cover,
+                  ),
                 ),
-               
               ),
             ),
             Text(film.title),

@@ -35,13 +35,13 @@ class topRadet extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Container(
+                child: SizedBox(
                   height: 300.h,
                   width: 200.w,
                   child: CachedNetworkImage(
                     imageUrl: film.poster,
                     errorWidget: (context, url, error) {
-                      return SizedBox(
+                      return const SizedBox(
                       );
                     },
                     fit: BoxFit.cover,
