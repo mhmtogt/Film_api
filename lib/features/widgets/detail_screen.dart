@@ -1,24 +1,29 @@
-import 'package:api_1/features/widgets/favorite_film.dart';
+
+
 import 'package:flutter/material.dart';
+import 'package:api_1/models/film.dart'; 
 
-class DetailScreen extends StatefulWidget {
-  const DetailScreen({super.key,
-  required this.movie});
+class FilmDetailPage extends StatelessWidget {
+  final FilmModel film; 
 
+  FilmDetailPage({required this.film});
 
-  final favoriteFilm movie;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("FİLM DETAİL"), 
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.network(film.poster), // Film posterini göster
+            Text('Açıklama: ${film.title}'), // Film açıklamasını gösterin
+           
+          ],
+        ),
+      ),
+    );
   }
-  
-
-  
-  
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }}
-  
-  
+}
