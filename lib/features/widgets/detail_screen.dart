@@ -17,7 +17,7 @@ class FilmDetailPage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: <Widget>[// bu liste bir widget listesi olduğunu gösterir
             Image.network(film.poster), // Film posterini göster
             Text('Açıklama: ${film.title}'), // Film açıklamasını gösterin
            
