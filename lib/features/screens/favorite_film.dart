@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:api_1/constants.dart';
 import 'package:api_1/core/extensions/num_extension.dart';
-import 'package:api_1/features/widgets/detail_screen.dart';
-import 'package:api_1/features/widgets/widgets/cached_network.dart';
+import 'package:api_1/features/screens/detail_screen.dart';
+import 'package:api_1/features/screens/widgets/cached_network.dart';
 import 'package:api_1/models/film.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';

@@ -1,10 +1,10 @@
 import 'package:api_1/api/api.dart';
 import 'package:api_1/core/extensions/num_extension.dart';
 import 'package:api_1/core/theme/text_styles.dart';
-import 'package:api_1/features/widgets/favorite_film.dart';
+import 'package:api_1/features/screens/favorite_film.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/top_radet_film.dart';
+import 'screens/top_radet_film.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
