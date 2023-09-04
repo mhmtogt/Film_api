@@ -4,7 +4,7 @@ import 'package:api_1/core/theme/text_styles.dart';
 import 'package:api_1/features/screens/favorite_film.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/top_radet_film.dart';
+import 'top_radet_film.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

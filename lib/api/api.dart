@@ -1,9 +1,9 @@
-import 'package:api_1/constants.dart';
+import 'package:api_1/core/constansts/api_setting_constants.dart';
 import 'package:api_1/models/film.dart';
 import 'package:dio/dio.dart';
 
 class Api {
-  static final Dio dio = Dio(BaseOptions(headers: {'Authorization': Constants.apiKey}));
+  static final Dio dio = Dio(BaseOptions(headers: {'Authorization': ApiSettingsConstants.apiKey}));
   static const String _baseUrl = 'https://api.collectapi.com/';
   static const String _favoriteUrl = '${_baseUrl}imdb/imdbSearchByName?query=inception';
 

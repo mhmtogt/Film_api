@@ -28,6 +28,10 @@ class topRadet extends StatelessWidget {
               const Duration(seconds: 2), // kartların geçiş zamanlaması
           pageSnapping: true,
         ),
+
+
+
+
         itemBuilder: (context, itemIndex, pageViewIndex) {
           final film = radets[itemIndex];
           final random = Random();
@@ -44,10 +48,14 @@ class topRadet extends StatelessWidget {
                       return const SizedBox(
                       );
                     },
+
+
                     fit: BoxFit.cover,
                   ),
                 ),
-              ),
+              ),  
+
+              
               Text(film.title),
               Text(film.imdbId),
             ],

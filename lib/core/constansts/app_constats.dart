@@ -1,7 +1,3 @@
-class Constants {
-  static const apiKey = 'apikey 1CMbcfKq2NJMCDIHAIMRX6:38nT05gSczLtLLHoxMrLpl';
-}
-
 class AppConstants {
   static const List<String> randomUrls = [
     'https://www.indiewire.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-12.18.19-PM.png',

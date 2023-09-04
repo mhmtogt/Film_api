@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:api_1/constants.dart';
+import 'package:api_1/core/constansts/app_constats.dart';
 import 'package:api_1/core/extensions/num_extension.dart';
 import 'package:api_1/features/screens/detail_screen.dart';
 import 'package:api_1/features/screens/widgets/cached_network.dart';
