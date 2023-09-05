@@ -1,11 +1,10 @@
-import 'package:api_1/core/constansts/api_setting_constants.dart';
+import 'package:api_1/core/constansts/api_endpoint.dart';
+import 'package:api_1/core/network/dio_menager.dart';
 import 'package:api_1/models/film.dart';
 import 'package:dio/dio.dart';
 
 class Api {
-  static final Dio dio = Dio(BaseOptions(headers: {'Authorization': ApiSettingsConstants.apiKey}));
-  static const String _baseUrl = 'https://api.collectapi.com/';
-  static const String _favoriteUrl = '${_baseUrl}imdb/imdbSearchByName?query=inception';
+  var dio = DioMenager.dio;
 
   // ignore: slash_for_doc_comments
   /**
@@ -17,8 +16,7 @@ class Api {
 
   Future<List<FilmModel>> getFavoriFilm() async {
     try {
-     
-      final response = await dio.get(_favoriteUrl);
+      final response = await dio.get(ApiEndpoint.favoriteUrl);
       final List<dynamic> data = response.data['result'];
       final List<FilmModel> films =
           data.map((item) => FilmModel.fromJson(item)).toList();
@@ -30,12 +28,10 @@ class Api {
 
   Future<void> postFilm(FilmModel film) async {
     try {
-     
-
-      
       final filmData = film.imdbId;
 
-      final response = await dio.post(_baseUrl + 'post', data: filmData);
+      final response =
+          await dio.post(ApiEndpoint.baseUrl + 'post', data: filmData);
 
       if (response.statusCode == 200) {
         print('Film oluşturuldu.');
@@ -49,11 +45,10 @@ class Api {
 
   Future<void> putFilm(FilmModel film) async {
     try {
- 
-   
       final filmData = film.imdbId;
 
-      final response = await dio.put(_baseUrl + 'put', data: filmData);
+      final response =
+          await dio.put(ApiEndpoint.baseUrl + 'put', data: filmData);
 
       if (response.statusCode == 200) {
         print('Film  güncellendi.');
@@ -67,9 +62,7 @@ class Api {
 
   Future<void> deleteFilm(int filmId) async {
     try {
-    
-
-      final response = await dio.delete(_baseUrl + 'delete/$filmId');
+      final response = await dio.delete(ApiEndpoint.baseUrl + 'delete/$filmId');
 
       if (response.statusCode == 200) {
         print('Film  silindi.');

@@ -1,4 +1,4 @@
-import 'package:api_1/core/extensions/responsive.dart';
+import 'package:api_1/core/extensions/screen_size.dart';
 import 'package:api_1/features/screens/home_screen.dart';
 import 'package:api_1/core/theme/colors_app.dart';
 import 'package:flutter/material.dart';

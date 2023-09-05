@@ -1,4 +1,4 @@
-import 'package:api_1/core/extensions/responsive.dart';
+import 'package:api_1/core/extensions/screen_size.dart';
 
 extension NumExtension on num {
   double get w => ScreenSize().setWidth(width: toDouble());
