@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
       title: 'FİLM ',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Colours.backColor,
-        useMaterial3: true,
       ),
       home: const HomeScreen(),
     );

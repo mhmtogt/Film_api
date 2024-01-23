@@ -6,13 +6,13 @@ import 'package:api_1/models/film.dart';
 class FilmDetailPage extends StatelessWidget {
   final FilmModel film; 
 
-  FilmDetailPage({required this.film});
+  const FilmDetailPage({super.key, required this.film});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("FİLM DETAİL"), 
+        title: const Text("FİLM DETAİL"), 
       ),
       body: Center(
         child: Column(

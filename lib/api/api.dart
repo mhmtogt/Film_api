@@ -35,7 +35,7 @@ var dio =DioManager.dio;
       
       final filmData = film.imdbId;
 
-      final response = await dio.post(ApiEndpoint.baseUrl + 'post', data: filmData);
+      final response = await dio.post('${ApiEndpoint.baseUrl}post', data: filmData);
 
       if (response.statusCode == 200) {
         print('Film oluşturuldu.');
@@ -53,7 +53,7 @@ var dio =DioManager.dio;
    
       final filmData = film.imdbId;
 
-      final response = await dio.put(ApiEndpoint.baseUrl + 'put', data: filmData);
+      final response = await dio.put('${ApiEndpoint.baseUrl}put', data: filmData);
 
       if (response.statusCode == 200) {
         print('Film  güncellendi.');
@@ -69,7 +69,7 @@ var dio =DioManager.dio;
     try {
     
 
-      final response = await dio.delete(ApiEndpoint.baseUrl + 'delete/$filmId');
+      final response = await dio.delete('${ApiEndpoint.baseUrl}delete/$filmId');
 
       if (response.statusCode == 200) {
         print('Film  silindi.');
